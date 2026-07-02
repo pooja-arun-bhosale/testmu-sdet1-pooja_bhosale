@@ -76,3 +76,38 @@ Fix the remaining dashboard test by resolving the locator issue.
 The Planner and Generator agents completed successfully. The generated tests initially failed due to the default 30s suite timeout during login. After increasing the test suite timeout, all dashboard tests passed.
 
 ---
+
+## Task 2 - API Module
+
+## Planner Agent
+
+```
+Explore the ReqRes REST API using the base URL from the .env file. Create a Playwright API test plan covering authentication, CRUD operations, error handling (4xx/5xx), rate limiting (if supported), and schema validation. Save the plan as specs/api.md.
+```
+
+---
+
+### Generator Agent
+
+```
+Generate Playwright API tests from specs/api.md and save them in tests/api/api.spec.ts. Use API_BASE_URL, API_EMAIL, and API_PASSWORD from the .env file, authenticate before running the API scenarios, and include appropriate assertions.
+```
+
+---
+
+### Healer Agent
+
+```
+Run tests/api/api.spec.ts, investigate and fix all failing API tests.
+
+
+Run tests/api/api.spec.ts. The REQRES_API_KEY has been added to the .env file. Verify the API credentials and environment configuration, rerun the tests, investigate any remaining failures, and fix them
+```
+
+---
+
+### Notes
+
+The initial API tests failed with `401 Unauthorized` because ReqRes now requires an `x-api-key` header for all requests. After creating a free ReqRes account, generating an API key, storing it in the `.env` file, and including it in the request headers, the authentication and remaining API tests executed successfully.
+
+---
